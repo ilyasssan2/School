@@ -1,0 +1,2 @@
+export const STUDENT__LOGIN = "STUDENT__LOGIN";
+export const STUDENT__LOGOUT = "STUDENT__LOGOUT";

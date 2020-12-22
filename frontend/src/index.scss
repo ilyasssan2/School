@@ -1,0 +1,13 @@
+@import "./styles/Student/global.scss";
+@import "./styles/Forms.scss";
+body {
+  margin: 0;
+}
+
+.full {
+  width: 100vh !important;
+  height: 100vw !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

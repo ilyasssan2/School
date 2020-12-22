@@ -1,0 +1,97 @@
+@import "./global.scss";
+@import "./SideBar.scss";
+@import "./Header.scss";
+
+* {
+  font-family: "Montserrat";
+  color: $txt;
+}
+a {
+  color: $txt;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  margin-left: $sideBarSize;
+  margin-top: 75px !important;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  height: 75px;
+  position: fixed;
+  left: $sideBarSize;
+  z-index: 3;
+  width: calc(100% - #{$sideBarSize}) !important;
+  top: 0;
+  padding: 0 50px;
+  justify-content: flex-end;
+  box-shadow: $shadow !important;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.img__rounded {
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+}
+
+.content {
+  padding: 30px;
+  background-color: $bg;
+}
+.myShadow {
+  box-shadow: $shadow;
+}
+.component__icon {
+  height: 60px;
+  border-radius: 50%;
+  width: 60px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg;
+  svg {
+    fill: $Pcolor;
+  }
+}
+.notification {
+  padding: 25px 0;
+  cursor: pointer;
+  &:hover {
+    background-color: $bg;
+  }
+  .notification__tittle {
+    margin: 0;
+  }
+  .notification__message {
+    padding: 10px 0;
+
+    line-height: 24px;
+  }
+  .notification__date {
+    font-size: 12px;
+    font-family: "Poppins";
+    font-weight: 600;
+  }
+  .notification__link {
+    color: $Pcolor;
+    font-weight: 500;
+    text-decoration: underline;
+    font-size: 14px;
+    font-family: "Poppins";
+    font-weight: 600;
+  }
+}

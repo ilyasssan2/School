@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.get("/", getAll);
 
-router.post("/", [check("title").notEmpty(), check("message").notEmpty()]), add;
+router.post("/", [check("title").notEmpty(), check("message").notEmpty()], add);
 
 module.exports = router;

@@ -1,0 +1,73 @@
+.SideBar {
+  width: $sideBarSize;
+  box-shadow: $shadow;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+
+  background-color: white;
+  height: 100%;
+  .sidebar__top {
+    height: 200px;
+    background-color: $bg !important;
+  }
+  .sidebar__bottom {
+    height: 60px;
+    width: 100%;
+    padding-left: 30px;
+    cursor: pointer;
+    display: flex;
+    background: white;
+    box-shadow: $shadow;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    svg {
+      margin-right: 15px;
+    }
+    &:hover {
+      color: $Pcolor !important;
+      svg {
+        fill: $Pcolor !important;
+      }
+    }
+  }
+  .sidebar__menu {
+    width: 100%;
+    display: flex;
+    padding: 30px 0;
+    align-items: center;
+    border-top: 1px solid #e8e8ee;
+    height: auto;
+    &__element {
+      a {
+        display: flex;
+        width: $sideBarSize !important;
+
+        align-items: center;
+
+        font-size: 16px;
+        text-transform: capitalize;
+        font-family: "Poppins";
+        padding: 15px 0;
+        padding-left: 30px;
+        font-weight: 400;
+        &.active {
+          background-color: $bg !important;
+          color: $Pcolor !important;
+          svg {
+            fill: $Pcolor !important;
+          }
+        }
+        letter-spacing: 1px;
+      }
+      &__icon {
+        font-size: 24px;
+        margin: 0;
+        margin-right: 20px;
+      }
+    }
+  }
+}
