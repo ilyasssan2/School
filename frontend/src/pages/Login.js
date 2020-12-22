@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Input } from "antd";
 import { At, Lock, Eye, EyeSlash } from "react-bootstrap-icons";
 import { Checkbox } from "antd";
@@ -7,9 +7,13 @@ import { Alert } from "antd";
 import useHTTP from "../Shared/useHTTP";
 import MySpin from "../UI/Spin";
 import useAuth from "../Shared/useAuth";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 function Login() {
   const { loading, error, fetchData } = useHTTP();
   const { login } = useAuth();
+  const token = useSelector((state) => state.student.token);
+  const history = useHistory();
 
   const formik = useFormik({
     initialValues: {
@@ -17,7 +21,6 @@ function Login() {
       password: "",
     },
     onSubmit: async (e, { resetForm }) => {
-      console.log(e.login + " " + e.password);
       const dataSent = JSON.stringify({ password: e.password, email: e.login });
 
       const data = await fetchData("student/login", "POST", dataSent, {
@@ -48,11 +51,15 @@ function Login() {
   const onChange = (e) => {
     console.log(`checked = ${e.target.checked}`);
   };
-  if (loading) {
-    return <MySpin />;
-  }
 
-  return (
+  useEffect(() => {
+    if (token) {
+      history.push("/Student");
+    }
+  }, [token]);
+  return loading ? (
+    <MySpin />
+  ) : (
     <div className="from__center">
       <form className="Form " onSubmit={formik.handleSubmit}>
         {error ? (

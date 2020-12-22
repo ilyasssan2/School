@@ -5,8 +5,8 @@ import {
   CardChecklist,
   BoxArrowInLeft,
   PersonLinesFill,
+  BellFill,
 } from "react-bootstrap-icons";
-
 const Sidebar = ({ logout }) => {
   return (
     <div className="SideBar">
@@ -29,6 +29,12 @@ const Sidebar = ({ logout }) => {
             <NavLink to="/Student/Profile" activeClassName="active">
               <PersonLinesFill className="sidebar__menu__element__icon" />
               Profile
+            </NavLink>
+          </li>
+          <li className="sidebar__menu__element ">
+            <NavLink to="/Student/Notifications" activeClassName="active">
+              <BellFill className="sidebar__menu__element__icon" />
+              Notifications
             </NavLink>
           </li>
         </ul>

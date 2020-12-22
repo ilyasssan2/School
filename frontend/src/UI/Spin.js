@@ -3,7 +3,7 @@ import { Spin } from "antd";
 
 function MySpin() {
   return (
-    <div className="full ">
+    <div className="center ">
       <Spin size="large" />
     </div>
   );

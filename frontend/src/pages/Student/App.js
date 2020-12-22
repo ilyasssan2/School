@@ -1,19 +1,26 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
-import Home from "./pages/Home";
+import { Route, Switch, useHistory } from "react-router-dom";
+import "./Styles/index.scss";
 import Sidebar from "./layout/Sidebar";
-import "../../styles/Student/index.scss";
 import Header from "./layout/Header";
 import { useSelector } from "react-redux";
 import useAuth from "../../Shared/useAuth";
-
+const Home = React.lazy(() => import("./pages/Home"));
+const Notifications = React.lazy(() => import("./pages/Notifications"));
+let timer;
 function App() {
   const token = useSelector((state) => state.student.token);
   const auth = useAuth();
   const history = useHistory();
   useEffect(() => {
     if (!token) {
-      history.push("/Login");
+      timer = setTimeout(() => {
+        console.log("Going to login");
+        history.push("/Login");
+      }, 2000);
+      return () => {
+        clearInterval(timer);
+      };
     }
   }, [token]);
   return (
@@ -21,11 +28,15 @@ function App() {
       <Header />
       <Sidebar logout={auth.logout} />
       <div className="content">
-        <BrowserRouter basename="/Student">
+        <div className="container">
           <Switch>
-            <Route path="/" component={Home} exact />
+            <Route path="/Student" component={Home} exact />
+            <Route
+              path="/Student/Notifications/:id?"
+              component={Notifications}
+            />
           </Switch>
-        </BrowserRouter>
+        </div>
       </div>
     </div>
   );

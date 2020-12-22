@@ -25,7 +25,6 @@ function useAuth() {
       localStorage.setItem("auth", storedUser);
 
       dispatch({ type: STUDENT__LOGIN, student, token });
-      history.push("/Student");
     },
     [dispatch]
   );

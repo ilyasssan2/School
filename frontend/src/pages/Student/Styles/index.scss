@@ -1,6 +1,6 @@
-@import "./global.scss";
-@import "./SideBar.scss";
-@import "./Header.scss";
+@import "./_global.scss";
+@import "./_SideBar.scss";
+@import "./_Header.scss";
 
 * {
   font-family: "Montserrat";
@@ -13,8 +13,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 100vw !important;
+  height: 100vh !important;
 }
 
 .content {
