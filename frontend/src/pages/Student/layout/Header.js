@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-
-function Header() {
+import { TextIndentLeft, TextIndentRight } from "react-bootstrap-icons";
+function Header({ setToggle, toggle }) {
   const Student = useSelector((state) => state.student.student);
 
+  const toggeleSidebare = () => {
+    setToggle(!toggle);
+  };
   return (
-    <header className="header">
+    <header className={toggle ? " full__header header" : "header"}>
+      {toggle ? (
+        <TextIndentRight
+          onClick={toggeleSidebare}
+          className="ico__toggele"
+          size={26}
+        />
+      ) : (
+        <TextIndentLeft
+          onClick={toggeleSidebare}
+          className="ico__toggele"
+          size={26}
+        />
+      )}
       <ul>
         <li className="header__elements">
-          <img src="./assets/images/t1.jpg" className="img__rounded" alt="" />{" "}
+          <img src="/assets/images/t1.jpg" className="img__rounded" alt="" />{" "}
           <span>{Student && Student.firstName + " " + Student.lastName}</span>
         </li>
       </ul>

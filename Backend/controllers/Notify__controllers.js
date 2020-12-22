@@ -7,6 +7,13 @@ const getAll = async (req, res, next) => {
     notifications: notify,
   });
 };
+const deleteById = async (req, res, next) => {
+  const id = req.params.id;
+  await Notify.findByIdAndDelete(id);
+  res.json({
+    message: "notification deleted",
+  });
+};
 const add = async (req, res, next) => {
   const err = validationResult(req);
   if (!err.isEmpty()) {
@@ -24,3 +31,4 @@ const add = async (req, res, next) => {
 
 exports.getAll = getAll;
 exports.add = add;
+exports.deleteById = deleteById;

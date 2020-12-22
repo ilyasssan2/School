@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import useHTTP from "../../../Shared/useHTTP";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
-
+import { Affix } from "antd";
 function Notifications({ match }) {
   const { error, loading, fetchData } = useHTTP();
   const [notifations, setNotifations] = useState();
+
+  const [top, setTop] = useState(95);
   const history = useHistory();
   const id = match.params.id;
   const [notifation, setNotifation] = useState(id ? id : null);
@@ -47,15 +49,17 @@ function Notifications({ match }) {
       </div>
       <div className="col-lg-5  col-sm-12">
         {notifation && (
-          <div className="notification  px-3 myShadow bg-white mb-3">
-            <h5 className="notification__tittle">{notifation.title}</h5>
-            <div className="notification__message">{notifation.message}</div>
-            <div className="d-flex justify-content-between align-items-center">
-              <span className="notification__date">
-                {moment(notifation.createdAt).calendar()}
-              </span>
+          <Affix offsetTop={top}>
+            <div className="notification  px-3 myShadow bg-white mb-3">
+              <h5 className="notification__tittle">{notifation.title}</h5>
+              <div className="notification__message">{notifation.message}</div>
+              <div className="d-flex justify-content-between align-items-center">
+                <span className="notification__date">
+                  {moment(notifation.createdAt).calendar()}
+                </span>
+              </div>
             </div>
-          </div>
+          </Affix>
         )}
       </div>
     </div>

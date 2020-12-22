@@ -1,8 +1,10 @@
 @import "./pages//Student/Styles/_global.scss";
 @import "./styles/Forms.scss";
-
-body {
+* {
   margin: 0;
+  box-sizing: border-box;
+}
+body {
 }
 
 .full {
@@ -11,4 +13,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.Myspin {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

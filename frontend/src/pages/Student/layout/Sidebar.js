@@ -7,9 +7,9 @@ import {
   PersonLinesFill,
   BellFill,
 } from "react-bootstrap-icons";
-const Sidebar = ({ logout }) => {
+const Sidebar = ({ logout, toggle }) => {
   return (
-    <div className="SideBar">
+    <div className={toggle ? "min__SideBar SideBar" : "SideBar"}>
       <div className="sidebar__top"></div>
       <div className="sidebar__menu">
         <ul>
@@ -34,7 +34,7 @@ const Sidebar = ({ logout }) => {
           <li className="sidebar__menu__element ">
             <NavLink to="/Student/Notifications" activeClassName="active">
               <BellFill className="sidebar__menu__element__icon" />
-              Notifications
+              Alerts
             </NavLink>
           </li>
         </ul>

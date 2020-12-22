@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 import Login from "./pages/Login";
 import { Provider } from "react-redux";
 import store from "./Store/root";
+import MySpin from "./UI/Spin";
 const Home = React.lazy(() => import("./pages/Home"));
 
 const Student = React.lazy(() => import("./pages/Student/App"));
@@ -13,7 +14,7 @@ function App() {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Suspense fallback={"Loading..."}>
+            <Suspense fallback={<MySpin />}>
               <Route component={Home} path="/" exact />
               <Route path="/Login" component={Login} exact />
               <Route component={Student} path="/Student" />

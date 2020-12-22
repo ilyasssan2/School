@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import "./Styles/index.scss";
 import Sidebar from "./layout/Sidebar";
@@ -23,11 +23,14 @@ function App() {
       };
     }
   }, [token]);
+
+  const [toggle, setToggle] = useState(false);
+
   return (
     <div className="Student__area">
-      <Header />
-      <Sidebar logout={auth.logout} />
-      <div className="content">
+      <Header toggle={toggle} setToggle={setToggle} />
+      <Sidebar logout={auth.logout} toggle={toggle} />
+      <div className={toggle ? " full__content content" : "content"}>
         <div className="container">
           <Switch>
             <Route path="/Student" component={Home} exact />
