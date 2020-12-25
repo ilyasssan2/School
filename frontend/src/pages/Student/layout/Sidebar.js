@@ -6,6 +6,7 @@ import {
   BoxArrowInLeft,
   PersonLinesFill,
   BellFill,
+  CalendarXFill,
 } from "react-bootstrap-icons";
 const Sidebar = ({ logout, toggle }) => {
   return (
@@ -35,6 +36,12 @@ const Sidebar = ({ logout, toggle }) => {
             <NavLink to="/Student/Notifications" activeClassName="active">
               <BellFill className="sidebar__menu__element__icon" />
               Alerts
+            </NavLink>
+          </li>
+          <li className="sidebar__menu__element ">
+            <NavLink to="/Student/Calendar" activeClassName="active">
+              <CalendarXFill className="sidebar__menu__element__icon" />
+              Calendar
             </NavLink>
           </li>
         </ul>

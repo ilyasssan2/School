@@ -30,7 +30,7 @@ function Notifications({ match }) {
         {notifations &&
           notifations.map((xs) => (
             <div
-              className="notification  px-3 myShadow bg-white mb-3"
+              className="notification  px-4 myShadow bg-white mb-3"
               key={xs._id}
               onClick={goToPath.bind(this, xs._id)}
             >
@@ -50,7 +50,7 @@ function Notifications({ match }) {
       <div className="col-lg-5  col-sm-12">
         {notifation && (
           <Affix offsetTop={top}>
-            <div className="notification  px-3 myShadow bg-white mb-3">
+            <div className="notification  px-4 myShadow bg-white s">
               <h5 className="notification__tittle">{notifation.title}</h5>
               <div className="notification__message">{notifation.message}</div>
               <div className="d-flex justify-content-between align-items-center">

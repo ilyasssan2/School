@@ -31,15 +31,10 @@ function App() {
       <Header toggle={toggle} setToggle={setToggle} />
       <Sidebar logout={auth.logout} toggle={toggle} />
       <div className={toggle ? " full__content content" : "content"}>
-        <div className="container">
-          <Switch>
-            <Route path="/Student" component={Home} exact />
-            <Route
-              path="/Student/Notifications/:id?"
-              component={Notifications}
-            />
-          </Switch>
-        </div>
+        <Switch>
+          <Route path="/Student" component={Home} exact />
+          <Route path="/Student/Notifications/:id?" component={Notifications} />
+        </Switch>
       </div>
     </div>
   );

@@ -10,13 +10,13 @@ function Header({ setToggle, toggle }) {
   return (
     <header className={toggle ? " full__header header" : "header"}>
       {toggle ? (
-        <TextIndentRight
+        <TextIndentLeft
           onClick={toggeleSidebare}
           className="ico__toggele"
           size={26}
         />
       ) : (
-        <TextIndentLeft
+        <TextIndentRight
           onClick={toggeleSidebare}
           className="ico__toggele"
           size={26}

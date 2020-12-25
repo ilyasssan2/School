@@ -16,15 +16,15 @@ function Notification() {
   };
   return (
     <div className="myShadow py-3 bg-white">
-      <div className="mx-3 component__icon  ">
-        <BellFill size={28} />        
+      <div className="mx-4 component__icon  ">
+        <BellFill size={28} />
       </div>
 
       <div>
         {notifations &&
-          notifations.map((xs) => (
+          notifations.slice(0, 2).map((xs) => (
             <div
-              className="notification  px-3"
+              className="notification  px-4"
               key={xs._id}
               onClick={goToPath.bind(this, xs._id)}
             >
