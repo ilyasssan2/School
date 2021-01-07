@@ -1,17 +1,17 @@
 const { validationResult } = require("express-validator");
-const Notify = require("../models/Notify");
+const Filier = require("../models/Filier");
 const getAll = async (req, res, next) => {
-  const notify = await Notify.find().sort({createdAt: -1});
+  const filiers = await Filier.find();
 
   res.json({
-    notifications: notify,
+    filiers,
   });
 };
 const deleteById = async (req, res, next) => {
   const id = req.params.id;
-  await Notify.findByIdAndDelete(id);
+  await Filier.findByIdAndDelete(id);
   res.json({
-    message: "notification deleted",
+    message: "Filier deleted",
   });
 };
 const add = async (req, res, next) => {
@@ -21,11 +21,11 @@ const add = async (req, res, next) => {
       message: "error",
     });
   }
-  const { groups, title, message } = req.body;
-  const newNotification = await Notify.create({ groups, title, message });
+  const { name, filier } = req.body;
+  const newFilier = await Filier.create({ name, filier });
 
   res.json({
-    newNotification,
+    newFilier,
   });
 };
 

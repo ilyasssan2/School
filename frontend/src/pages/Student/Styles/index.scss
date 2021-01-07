@@ -1,6 +1,7 @@
 @import "./_global.scss";
 @import "./_SideBar.scss";
 @import "./_Header.scss";
+@import "./profile.scss";
 
 * {
   font-family: "Montserrat";
@@ -46,12 +47,16 @@ ul {
 }
 .img__rounded {
   border-radius: 50%;
-  height: 45px;
-  width: 45px;
+}
+header {
+  .img__rounded {
+    height: 45px;
+    width: 45px;
+  }
 }
 
 .content {
-  padding: 30px;
+  padding: 30px 50px;
   background-color: $bg;
 }
 .myShadow {
@@ -78,6 +83,7 @@ ul {
   }
   .notification__tittle {
     margin: 0;
+    text-transform: capitalize;
   }
   .notification__message {
     padding: 10px 0;

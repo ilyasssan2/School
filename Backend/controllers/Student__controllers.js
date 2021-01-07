@@ -5,7 +5,7 @@ const { validationResult } = require("express-validator");
 
 const getAll = async (req, res, next) => {
   try {
-    const students = await Student.find();
+    const students = await Student.find().populate("groupe");
     res.json({
       students,
     });
@@ -15,7 +15,7 @@ const getAll = async (req, res, next) => {
 };
 const getById = async (req, res, next) => {
   const id = req.params.id;
-  const student = await Student.findById(id);
+  const student = await Student.findById(id).populate("groupe");
   if (!student) {
     return next(new MyError("there is no student with this id", 403));
   }
@@ -84,7 +84,7 @@ const login = async (req, res, next) => {
     return next(new MyError("please check your inputs", 422));
   }
   const { email, password } = req.body;
-  const student = await Student.findOne({ email });
+  const student = await Student.findOne({ email }).populate("groupe");
   // const validation = await bcrypt.compare(password, student.password);
   if (!student || password !== student.password) {
     return next(new MyError("please check your inputs", 422));

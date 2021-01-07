@@ -7,6 +7,9 @@ require("dotenv").config();
 
 const Notification = require("./routes/Notify__routes");
 const Student = require("./routes/Student__routes");
+const Group = require("./routes/group__routes");
+const Filier = require("./routes/Filier__routes");
+
 const app = express();
 app.use(bodyparser.json());
 app.use(
@@ -21,7 +24,8 @@ app.get("/", (req, res, next) => {
 /*--------------routes------------------------*/
 app.use("/api/notification", Notification);
 app.use("/api/student", Student);
-
+app.use("/api/group", Group);
+app.use("/api/filier", Filier);
 /*------------middlewares--------- */
 
 app.use(middlewars.NoteFound);

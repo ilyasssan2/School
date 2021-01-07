@@ -19,6 +19,18 @@ const Sidebar = ({ logout, toggle }) => {
               <HouseFill className="sidebar__menu__element__icon" />
               Home
             </NavLink>
+          </li>{" "}
+          {/* <li className="sidebar__menu__element ">
+            <NavLink to="/Student/Notifications" activeClassName="active">
+              <BellFill className="sidebar__menu__element__icon" />
+              Alerts
+            </NavLink>
+          </li> */}
+          <li className="sidebar__menu__element ">
+            <NavLink to="/Student/Calendar" activeClassName="active">
+              <CalendarXFill className="sidebar__menu__element__icon" />
+              Calendar
+            </NavLink>
           </li>
           <li className="sidebar__menu__element ">
             <NavLink to="/Student/Notes" activeClassName="active">
@@ -30,18 +42,6 @@ const Sidebar = ({ logout, toggle }) => {
             <NavLink to="/Student/Profile" activeClassName="active">
               <PersonLinesFill className="sidebar__menu__element__icon" />
               Profile
-            </NavLink>
-          </li>
-          <li className="sidebar__menu__element ">
-            <NavLink to="/Student/Notifications" activeClassName="active">
-              <BellFill className="sidebar__menu__element__icon" />
-              Alerts
-            </NavLink>
-          </li>
-          <li className="sidebar__menu__element ">
-            <NavLink to="/Student/Calendar" activeClassName="active">
-              <CalendarXFill className="sidebar__menu__element__icon" />
-              Calendar
             </NavLink>
           </li>
         </ul>

@@ -6,7 +6,7 @@ const Student = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true, minlength: 6 },
     lastName: { type: String, required: true },
-    groupe: { type: mongoose.Types.ObjectId, ref: "Group" },
+    groupe: { type: mongoose.Types.ObjectId, ref: "Groupe" },
     phone: { type: String },
     image: { type: String },
     birthday: { type: Date, required: true },
