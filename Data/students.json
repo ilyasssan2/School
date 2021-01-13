@@ -1,0 +1,107 @@
+[{
+  "_id": {
+    "$oid": "5fe61aebb1963f072079b44f"
+  },
+  "email": "boudakaboudaka@gmail.com",
+  "firstName": "ilyass",
+  "lastName": "boueka",
+  "phone": "212634732987",
+  "password": "123456",
+  "birthday": {
+    "$date": "2000-11-08T00:00:00Z"
+  },
+  "createdAt": {
+    "$date": "2020-12-25T17:01:31.969Z"
+  },
+  "updatedAt": {
+    "$date": "2020-12-25T17:01:31.969Z"
+  },
+  "__v": 0,
+  "groupe": "5ff7447cb6ef790ec47eb632"
+},{
+  "_id": {
+    "$oid": "5ff9a67b86fc3742f86de7d9"
+  },
+  "email": "ahmed.blabla@gmail.com",
+  "firstName": "ahmed",
+  "lastName": "blabla",
+  "phone": "212634732987",
+  "password": "123456",
+  "birthday": {
+    "$date": "2000-11-08T00:00:00Z"
+  },
+  "createdAt": {
+    "$date": "2020-12-25T17:01:31.969Z"
+  },
+  "updatedAt": {
+    "$date": "2020-12-25T17:01:31.969Z"
+  },
+  "__v": 0,
+  "groupe": "5ff7447cb6ef790ec47eb632"
+},{
+  "_id": {
+    "$oid": "5ffcf0c3b2eda231a081fe0c"
+  },
+  "email": "boudakailyass2@gmail.com",
+  "firstName": "ilias",
+  "lastName": "boudeka",
+  "groupe": {
+    "$oid": "5ff74496b6ef790ec47eb633"
+  },
+  "phone": "+212629450954",
+  "password": "f61hxr",
+  "birthday": {
+    "$date": "2021-01-14T00:00:00Z"
+  },
+  "createdAt": {
+    "$date": "2021-01-12T00:43:47.673Z"
+  },
+  "updatedAt": {
+    "$date": "2021-01-12T00:43:47.673Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ffcf122b2eda231a081fe0f"
+  },
+  "email": "boudakailyass22@gmail.com",
+  "firstName": "ilias",
+  "lastName": "boudeka",
+  "groupe": {
+    "$oid": "5ff74496b6ef790ec47eb633"
+  },
+  "phone": "+212629450954",
+  "password": "cf559o",
+  "birthday": {
+    "$date": "2021-01-13T00:00:00Z"
+  },
+  "createdAt": {
+    "$date": "2021-01-12T00:45:22.022Z"
+  },
+  "updatedAt": {
+    "$date": "2021-01-12T00:45:22.022Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ffcf354f830cd2754f7a22b"
+  },
+  "email": "boudakailyass23@gmail.com",
+  "firstName": "blabla",
+  "lastName": "blabla",
+  "groupe": {
+    "$oid": "5ff744a1b6ef790ec47eb634"
+  },
+  "phone": "+212629450944",
+  "password": "dryc8q",
+  "birthday": {
+    "$date": "2002-03-15T00:00:00Z"
+  },
+  "createdAt": {
+    "$date": "2021-01-12T00:54:44.837Z"
+  },
+  "updatedAt": {
+    "$date": "2021-01-12T00:54:44.837Z"
+  },
+  "__v": 0
+}]
