@@ -33,3 +33,16 @@
 .w-300 {
   width: 300px !important;
 }
+.input__form {
+  height: 40px !important;
+  flex: 1;
+  width: 100%;
+  font-size: 14px !important;
+}
+
+.personneForm {
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    height: 40px;
+    align-items: center;
+  }
+}

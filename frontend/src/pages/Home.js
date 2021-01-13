@@ -5,6 +5,8 @@ function Home() {
   return (
     <div>
       <Link to="/Login">Go To Student area</Link>
+      <br />
+      <Link to="/Admin">Go To Admin area</Link>
     </div>
   );
 }

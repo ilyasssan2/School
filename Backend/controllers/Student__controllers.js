@@ -55,27 +55,24 @@ const add = async (req, res, next) => {
     image,
   } = req.body;
   let password = Math.random().toString(36).substring(7);
-  const student = await Student.create({
-    email,
-    firstName,
-    lastName,
-    groupe,
-    phone,
-    password,
-    birthday,
-    image,
-  });
-  if (!student) return next(new MyError("something went wrong"));
-  let token;
-  token = jwt.sign(
-    { id: student._id, email: student.email },
-    process.env.SECRET__KEY,
-    { expiresIn: "1h" }
-  );
-  res.json({
-    student,
-    token,
-  });
+
+  try {
+    const student = await Student.create({
+      email,
+      firstName,
+      lastName,
+      groupe,
+      phone,
+      password,
+      birthday,
+      image,
+    });
+    res.json({
+      student,
+    });
+  } catch (error) {
+    return next(new MyError("something went wrong"));
+  }
 };
 
 const login = async (req, res, next) => {

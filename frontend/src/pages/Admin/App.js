@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-import "./Styles/index.scss";
+import "../../styles/DashBoard/index.scss";
+
 import Sidebar from "./layout/Sidebar";
 import Header from "./layout/Header";
 import { useSelector } from "react-redux";
-import useAuth from "../../Shared/useAuth";
+import useAdmin from "../../Shared/useAdmin";
+import MyBreadcrumb from "./components/MyBreadcrumb";
 const Home = React.lazy(() => import("./pages/Home"));
-const Notifications = React.lazy(() => import("./pages/Notifications"));
+const Students = React.lazy(() => import("./pages/Students"));
 let timer;
 function App() {
-  const token = useSelector((state) => state.student.token);
-  const auth = useAuth();
+  const token = useSelector((state) => state.admin.token);
+  document.title = "Admin";
+  const admin = useAdmin();
   const history = useHistory();
   useEffect(() => {
     if (!token) {
       timer = setTimeout(() => {
         console.log("Going to login");
-        history.push("/Login");
+        history.push("/AdminLogin");
       }, 100);
       return () => {
         clearInterval(timer);
@@ -29,11 +32,12 @@ function App() {
   return (
     <div className="Student__area">
       <Header toggle={toggle} setToggle={setToggle} />
-      <Sidebar logout={auth.logout} toggle={toggle} />
+      <Sidebar logout={admin.logout} toggle={toggle} />
       <div className={toggle ? " full__content content" : "content"}>
+        <MyBreadcrumb />
         <Switch>
-          <Route path="/Student" component={Home} exact />
-          <Route path="/Student/Notifications/:id?" component={Notifications} />
+          <Route path="/Admin" component={Home} exact />
+          <Route path="/Admin/Students" component={Students} exact />
         </Switch>
       </div>
     </div>

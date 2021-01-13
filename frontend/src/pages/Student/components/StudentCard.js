@@ -4,6 +4,7 @@ import moment from "moment";
 function StudentCard() {
   const student = useSelector((state) => state.student.student);
   console.log(student);
+  if (!student) return null;
   return (
     <div className="myShadow p-4 bg-white StudentCard">
       <div className="d-flex align-items-center">
