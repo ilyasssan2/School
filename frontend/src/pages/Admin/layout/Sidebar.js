@@ -1,40 +1,49 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {
-  HouseFill,
-  CardChecklist,
+  House,
+  ListUl,
   BoxArrowInLeft,
-  PersonLinesFill,
-  BellFill,
-  CalendarXFill,
+  Bell,
+  People,
 } from "react-bootstrap-icons";
+import { useSelector } from "react-redux";
 const Sidebar = ({ logout, toggle }) => {
+  const admin = useSelector((state) => state.admin.admin);
   return (
     <div className={toggle ? "min__SideBar SideBar" : "SideBar"}>
-      <div className="sidebar__top"></div>
+      <div className="sidebar__logo"></div>
+      <div className="sidebar__top">
+        <img src="/assets/images/t1.jpg" className="img__rounded" alt="" />
+        <h5>{admin && admin.login}</h5>
+        <h6>
+          <span>Dashboard</span>-<span>Admin</span>
+        </h6>
+        <h5 className="sidebar__top__profile">Profile</h5>
+      </div>
       <div className="sidebar__menu">
         <ul>
           <li className="sidebar__menu__element">
             <NavLink to="/Admin" activeClassName="active" exact>
-              <HouseFill className="sidebar__menu__element__icon" />
+              <House className="sidebar__menu__element__icon" />
               Home
             </NavLink>
           </li>{" "}
           <li className="sidebar__menu__element ">
             <NavLink to="/Admin/Alerts" exact activeClassName="active">
-              <BellFill className="sidebar__menu__element__icon" />
+              <Bell className="sidebar__menu__element__icon" />
               Alerts
             </NavLink>
           </li>
           <li className="sidebar__menu__element ">
             <NavLink to="/Admin/Groupes" activeClassName="active">
-              <CardChecklist className="sidebar__menu__element__icon" />
+              <ListUl className="sidebar__menu__element__icon" />
               Groupes
             </NavLink>
           </li>
           <li className="sidebar__menu__element ">
             <NavLink to="/Admin/Students" activeClassName="active">
-              <PersonLinesFill className="sidebar__menu__element__icon" />
+              <People className="sidebar__menu__element__icon" />
               Students
             </NavLink>
           </li>

@@ -6,7 +6,7 @@ function StudentCard() {
   console.log(student);
   if (!student) return null;
   return (
-    <div className="myShadow p-4 bg-white StudentCard">
+    <div className="myShadow p-4 bg-white StudentCard component">
       <div className="d-flex align-items-center">
         <img
           src="/assets/images/t1.jpg"

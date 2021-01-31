@@ -1,14 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import {
-  BellFill,
-  TextIndentLeft,
-  TextIndentRight,
-} from "react-bootstrap-icons";
+import { Bell, TextIndentLeft, TextIndentRight } from "react-bootstrap-icons";
 function Header({ setToggle, toggle }) {
-  const Student = useSelector((state) => state.student.student);
-
   const toggeleSidebare = () => {
     setToggle(!toggle);
   };
@@ -30,13 +23,8 @@ function Header({ setToggle, toggle }) {
       <ul className="header__elements">
         <li className="header__element ">
           <NavLink to="/Student/Notifications" activeClassName="active">
-            <BellFill className="header__element__icon" />
+            <Bell className="header__element__icon" />
           </NavLink>
-        </li>
-
-        <li className="header__element">
-          <img src="/assets/images/t1.jpg" className="img__rounded" alt="" />{" "}
-          <span>{Student && Student.firstName + " " + Student.lastName}</span>
         </li>
       </ul>
     </header>

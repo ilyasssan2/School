@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-import "./Styles/index.scss";
 import Sidebar from "./layout/Sidebar";
 import Header from "./layout/Header";
 import { useSelector } from "react-redux";
 import useAuth from "../../Shared/useAuth";
+import MyBreadcrumb from "./components/MyBreadcrumb";
 const Home = React.lazy(() => import("./pages/Home"));
 const Notifications = React.lazy(() => import("./pages/Notifications"));
 let timer;
@@ -31,6 +31,7 @@ function App() {
       <Header toggle={toggle} setToggle={setToggle} />
       <Sidebar logout={auth.logout} toggle={toggle} />
       <div className={toggle ? " full__content content" : "content"}>
+        <MyBreadcrumb />
         <Switch>
           <Route path="/Student" component={Home} exact />
           <Route path="/Student/Notifications/:id?" component={Notifications} />

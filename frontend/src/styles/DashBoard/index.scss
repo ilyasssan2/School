@@ -2,14 +2,9 @@
 @import "./_SideBar.scss";
 @import "./tables.scss";
 @import "./_Header.scss";
-@import "./profile.scss";
+@import "./_profile.scss";
+@import "./_Forms.scss";
 
-* {
-  font-family: "Montserrat";
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 a,
 li,
 span {
@@ -37,36 +32,17 @@ span {
   overflow-y: auto !important;
 }
 
+.component {
+  border-radius: 4px;
+}
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.header {
-  height: 75px;
-  position: fixed;
-  left: $sideBarSize;
-  z-index: 3;
-  width: calc(100% - #{$sideBarSize}) !important;
-  top: 0;
-  padding: 0 50px;
-  justify-content: space-between;
-  box-shadow: $shadow !important;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  .ico__toggele {
-    cursor: pointer;
-  }
-}
+
 .img__rounded {
   border-radius: 50%;
-}
-header {
-  .img__rounded {
-    height: 45px;
-    width: 45px;
-  }
 }
 
 .content {
@@ -118,39 +94,7 @@ header {
     font-weight: 600;
   }
 }
-.min__SideBar {
-  width: $sideBarSize2 !important;
-  .sidebar__bottom {
-    padding: 0;
-    svg {
-      margin: 0;
-      height: 24px !important;
-    }
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .sidebar__menu {
-    &__element {
-      a {
-        padding-left: 0 !important;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        flex-direction: column;
-        width: $sideBarSize2 !important;
-      }
-      &__icon {
-        margin-right: 0 !important;
-        margin-bottom: 5px;
-      }
-    }
-  }
-}
-.full__header {
-  width: calc(100% - #{$sideBarSize2}) !important;
-  left: $sideBarSize2;
-}
+
 .full__content {
   margin-left: $sideBarSize2 !important;
 }

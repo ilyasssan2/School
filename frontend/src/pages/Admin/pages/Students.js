@@ -145,7 +145,7 @@ function Students() {
   ];
   return (
     <div>
-      <div className="table__container">
+      <div className="table__container component">
         <button className="btn__primary" onClick={OpenModal}>
           Add
         </button>

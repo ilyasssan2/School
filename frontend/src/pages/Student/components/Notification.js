@@ -15,7 +15,7 @@ function Notification() {
     history.push("/Student/Notifications/" + id);
   };
   return (
-    <div className="myShadow py-4 bg-white">
+    <div className="myShadow py-4 bg-white component">
       <div className="mx-4 component__icon  ">
         <BellFill size={28} />
       </div>
