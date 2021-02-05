@@ -25,7 +25,10 @@ function App() {
   }, [token]);
 
   const [toggle, setToggle] = useState(false);
-
+  const sidebar = JSON.parse(localStorage.getItem("Sidebare"))
+  useEffect(()=>{
+if(sidebar) {setToggle(sidebar["value"])}
+  },[])
   return (
     <div className="Student__area">
       <Header toggle={toggle} setToggle={setToggle} />

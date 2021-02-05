@@ -1,5 +1,6 @@
 @import "./_global.scss";
 @import "./_SideBar.scss";
+@import "./_Util.scss";
 @import "./tables.scss";
 @import "./_Header.scss";
 @import "./_profile.scss";
@@ -99,39 +100,6 @@ ul {
   margin-left: $sideBarSize2 !important;
 }
 
-.btn__primary {
-  width: 100px;
-  height: 40px;
-
-  background-color: $Pcolor;
-  color: white;
-  font-family: "Montserrat";
-  text-transform: uppercase;
-  font-weight: 500;
-  border: 0;
-  box-shadow: 0 10px 10px rgba($color: $Pcolor, $alpha: 0.1);
-  outline: 0 !important;
-}
-.btn__secondary {
-  width: 100px;
-  height: 40px;
-
-  background-color: rgba($color: $Pcolor, $alpha: 0.05);
-  color: $Pcolor;
-  font-family: "Montserrat";
-  text-transform: uppercase;
-  font-weight: 500;
-  border: 0;
-  box-shadow: 0 10px 10px rgba($color: $Pcolor, $alpha: 0.05);
-  outline: 0 !important;
-}
-.btn__link {
-  color: rgb(28, 191, 255);
-  text-decoration: underline;
-  border: 0;
-  outline: 0 !important;
-  background-color: transparent;
-}
 .bg__P {
   background-color: $Pcolor;
 }

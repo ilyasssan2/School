@@ -68,7 +68,7 @@ const add = async (req, res, next) => {
       image,
     });
     res.json({
-      student,
+      message : "student added",
     });
   } catch (error) {
     return next(new MyError("something went wrong"));
@@ -112,7 +112,7 @@ const update = async (req, res, next) => {
     image,
     id,
   } = req.body;
-  const student = await Student.findByIdAndUpdate(id, {
+  const student = await Student.findByIdAndUpdate( { _id: id }, {
     email,
     firstName,
     lastName,

@@ -25,7 +25,9 @@ router.patch(
   "/",
   [
     check("email").notEmpty().isEmail(),
-    check("password").isLength({ min: 6 }),
+    check("firstName").notEmpty(),
+    check("lastName").notEmpty(),
+    check("birthday").isDate(),
     check("id").isMongoId(),
   ],
   Controller.update

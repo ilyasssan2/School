@@ -4,7 +4,9 @@ import { Table, Input, Button, Space } from "antd";
 import PersonneForm from "../components/PersonneForm";
 import { SearchOutlined } from "@ant-design/icons";
 import Highlighter from "react-highlight-words";
-
+import {
+  ArrowRepeat
+} from "react-bootstrap-icons";
 function Students() {
   const { fetchData, loading } = useHTTP();
   const [students, setStudents] = useState();
@@ -12,8 +14,9 @@ function Students() {
   const [open, setOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
-
+  const [dataToModel , setDataToModel ] = useState();
   const OpenModal = () => {
+    setDataToModel({})
     setOpen(!open);
   };
   const res = async () => {
@@ -134,11 +137,10 @@ function Students() {
     },
     {
       title: "Action",
-      key: "action",
+      key: "Action",
       render: (text, record) => (
         <Space size="middle">
-          <button className="btn__link">Edit</button>
-          <button className="btn__link">Delete</button>
+          <button className="btn__link" onClick={()=>{ setDataToModel(text) ; setOpen(true)}}>Edit</button>
         </Space>
       ),
     },
@@ -146,6 +148,9 @@ function Students() {
   return (
     <div>
       <div className="table__container component">
+      <button className="btn__icon mr-2" onClick={res}>
+          <ArrowRepeat />
+        </button>
         <button className="btn__primary" onClick={OpenModal}>
           Add
         </button>
@@ -160,7 +165,7 @@ function Students() {
           />
         </div>
       </div>
-      {open && <PersonneForm open={open} OpenModal={OpenModal} />}
+      {open && <PersonneForm open={open} OpenModal={OpenModal} DataToModel={dataToModel} />}
     </div>
   );
 }

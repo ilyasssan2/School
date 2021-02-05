@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Bell, TextIndentLeft, TextIndentRight } from "react-bootstrap-icons";
 function Header({ setToggle, toggle }) {
   const toggeleSidebare = () => {
+    localStorage.setItem("Sidebare" , JSON.stringify({value : !toggle}));
     setToggle(!toggle);
   };
   return (

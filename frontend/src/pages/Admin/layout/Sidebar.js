@@ -6,6 +6,8 @@ import {
   BoxArrowInLeft,
   Bell,
   People,
+  Gear,
+  PersonBadge
 } from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
 const Sidebar = ({ logout, toggle }) => {
@@ -45,6 +47,18 @@ const Sidebar = ({ logout, toggle }) => {
             <NavLink to="/Admin/Students" activeClassName="active">
               <People className="sidebar__menu__element__icon" />
               Students
+            </NavLink>
+          </li>
+          <li className="sidebar__menu__element ">
+            <NavLink to="/Admin/Teachers" activeClassName="active">
+              <PersonBadge className="sidebar__menu__element__icon" />
+              Teachers
+            </NavLink>
+          </li>
+          <li className="sidebar__menu__element ">
+            <NavLink to="/Admin/Settings" activeClassName="active">
+              <Gear className="sidebar__menu__element__icon" />
+              Settings
             </NavLink>
           </li>
         </ul>
