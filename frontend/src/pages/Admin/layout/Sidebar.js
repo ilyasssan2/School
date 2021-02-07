@@ -7,7 +7,7 @@ import {
   Bell,
   People,
   Gear,
-  PersonBadge
+  PersonBadge,
 } from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
 const Sidebar = ({ logout, toggle }) => {
@@ -38,9 +38,8 @@ const Sidebar = ({ logout, toggle }) => {
             </NavLink>
           </li>
           <li className="sidebar__menu__element ">
-            <NavLink to="/Admin/Groupes" activeClassName="active">
-              <ListUl className="sidebar__menu__element__icon" />
-              Groupes
+            <NavLink to="/Admin/Gf" activeClassName="active">
+              <ListUl className="sidebar__menu__element__icon" />G & F
             </NavLink>
           </li>
           <li className="sidebar__menu__element ">

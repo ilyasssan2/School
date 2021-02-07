@@ -11,7 +11,7 @@ const deleteById = async (req, res, next) => {
   const id = req.params.id;
   await Groupe.findByIdAndDelete(id);
   res.json({
-    message: "notification deleted",
+    message: "groupe deleted",
   });
 };
 const add = async (req, res, next) => {
@@ -25,7 +25,7 @@ const add = async (req, res, next) => {
   const newGroupe = await Groupe.create({ name, filier });
 
   res.json({
-    newGroupe,
+    message: "groupe added",
   });
 };
 

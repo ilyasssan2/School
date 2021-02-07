@@ -1,3 +1,6 @@
+* {
+  margin: 0;
+}
 @import "./_global.scss";
 @import "./_SideBar.scss";
 @import "./_Util.scss";
@@ -35,6 +38,8 @@ span {
 
 .component {
   border-radius: 4px;
+  background-color: $bg;
+  background-color: white;
 }
 ul {
   list-style: none;

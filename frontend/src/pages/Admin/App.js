@@ -7,6 +7,7 @@ import Header from "./layout/Header";
 import { useSelector } from "react-redux";
 import useAdmin from "../../Shared/useAdmin";
 import MyBreadcrumb from "./components/MyBreadcrumb";
+import GF from "./pages/GF";
 const Home = React.lazy(() => import("./pages/Home"));
 const Students = React.lazy(() => import("./pages/Students"));
 let timer;
@@ -27,10 +28,12 @@ function App() {
     }
   }, [token]);
   const [toggle, setToggle] = useState();
-  const sidebar = JSON.parse(localStorage.getItem("Sidebare"))
-  useEffect(()=>{
-if(sidebar) {setToggle(sidebar["value"])}
-  },[])
+  const sidebar = JSON.parse(localStorage.getItem("Sidebare"));
+  useEffect(() => {
+    if (sidebar) {
+      setToggle(sidebar["value"]);
+    }
+  }, []);
   return (
     <div className="Student__area">
       <Header toggle={toggle} setToggle={setToggle} />
@@ -40,6 +43,7 @@ if(sidebar) {setToggle(sidebar["value"])}
         <Switch>
           <Route path="/Admin" component={Home} exact />
           <Route path="/Admin/Students" component={Students} exact />
+          <Route path="/Admin/Gf" component={GF} exact />
         </Switch>
       </div>
     </div>

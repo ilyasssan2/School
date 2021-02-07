@@ -21,11 +21,11 @@ const add = async (req, res, next) => {
       message: "error",
     });
   }
-  const { name, filier } = req.body;
-  const newFilier = await Filier.create({ name, filier });
+  const { name } = req.body;
+  const newFilier = await Filier.create({ name });
 
   res.json({
-    newFilier,
+    message: "filier added",
   });
 };
 
