@@ -7,4 +7,4 @@ const Filier = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Filier", Filier);
+module.exports = mongoose.models.Filier || mongoose.model("Filier", Filier);

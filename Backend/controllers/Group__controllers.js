@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator");
+const MyError = require("../ErrorModal");
 const Groupe = require("../models/Groupe");
 const getAll = async (req, res, next) => {
   const groupes = await Groupe.find().populate("filier");
@@ -17,9 +18,7 @@ const deleteById = async (req, res, next) => {
 const add = async (req, res, next) => {
   const err = validationResult(req);
   if (!err.isEmpty()) {
-    return res.json({
-      message: "error",
-    });
+    return next(new MyError("fileds not valid", 403));
   }
   const { name, filier } = req.body;
   const newGroupe = await Groupe.create({ name, filier });

@@ -1,31 +1,45 @@
 import React, { useEffect, useState } from "react";
 import useHTTP from "../../../Shared/useHTTP";
-import { Table, Input, Button, Space } from "antd";
+import { Table, Input, Button, Space, Select } from "antd";
 import PersonneForm from "../components/PersonneForm";
 import { SearchOutlined } from "@ant-design/icons";
 import Highlighter from "react-highlight-words";
-import {
-  ArrowRepeat
-} from "react-bootstrap-icons";
+import { ArrowRepeat } from "react-bootstrap-icons";
+let studentsNotFiltered;
 function Students() {
   const { fetchData, loading } = useHTTP();
   const [students, setStudents] = useState();
+  const [groupes, setGroupes] = useState();
   let searchInput;
   const [open, setOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
-  const [dataToModel , setDataToModel ] = useState();
+  const [dataToModel, setDataToModel] = useState();
+  const { Option } = Select;
   const OpenModal = () => {
-    setDataToModel({})
+    setDataToModel({});
     setOpen(!open);
   };
   const res = async () => {
     const data = await fetchData("student");
     setStudents(data.students);
+    studentsNotFiltered = data.students;
+  };
+  const getGroupes = async () => {
+    const data = await fetchData("group");
+    setGroupes(data.groupes);
+  };
+  const Filter = (search) => {
+    if (search) {
+      setStudents(studentsNotFiltered.filter((xs) => xs.groupe._id === search));
+    } else {
+      setStudents(studentsNotFiltered);
+    }
   };
 
   useEffect(() => {
     res();
+    getGroupes();
   }, []);
 
   const getColumnSearchProps = (dataIndex) => ({
@@ -140,7 +154,15 @@ function Students() {
       key: "Action",
       render: (text, record) => (
         <Space size="middle">
-          <button className="btn__link" onClick={()=>{ setDataToModel(text) ; setOpen(true)}}>Edit</button>
+          <button
+            className="btn__link"
+            onClick={() => {
+              setDataToModel(text);
+              setOpen(true);
+            }}
+          >
+            Edit
+          </button>
         </Space>
       ),
     },
@@ -148,12 +170,33 @@ function Students() {
   return (
     <div>
       <div className="table__container component">
-      <button className="btn__icon mr-2" onClick={res}>
-          <ArrowRepeat />
-        </button>
-        <button className="btn__primary" onClick={OpenModal}>
-          Add
-        </button>
+        <div className="d-flex justify-content-between">
+          <div>
+            <button className="btn__icon mr-2" onClick={res}>
+              <ArrowRepeat />
+            </button>
+            <button className="btn__primary" onClick={OpenModal}>
+              Add
+            </button>
+          </div>
+          <div className="w-150">
+            <Select
+              className="input__form "
+              placeholder="Groupe"
+              name="filier"
+              onChange={Filter}
+              allowClear
+            >
+              {groupes &&
+                groupes.map((groupe) => (
+                  <Option value={groupe._id} key={groupe._id}>
+                    {groupe.name}
+                  </Option>
+                ))}
+            </Select>
+          </div>
+        </div>
+
         <div className="myTable">
           <Table
             columns={StudentTable}
@@ -165,7 +208,13 @@ function Students() {
           />
         </div>
       </div>
-      {open && <PersonneForm open={open} OpenModal={OpenModal} DataToModel={dataToModel} />}
+      {open && (
+        <PersonneForm
+          open={open}
+          OpenModal={OpenModal}
+          DataToModel={dataToModel}
+        />
+      )}
     </div>
   );
 }

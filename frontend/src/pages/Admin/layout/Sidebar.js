@@ -1,13 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {
-  House,
   ListUl,
   BoxArrowInLeft,
   Bell,
   People,
   Gear,
   PersonBadge,
+  PieChart,
+  Clipboard,
+  Clock,
 } from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
 const Sidebar = ({ logout, toggle }) => {
@@ -27,10 +29,22 @@ const Sidebar = ({ logout, toggle }) => {
         <ul>
           <li className="sidebar__menu__element">
             <NavLink to="/Admin" activeClassName="active" exact>
-              <House className="sidebar__menu__element__icon" />
-              Home
+              <PieChart className="sidebar__menu__element__icon" />
+              Statistics
             </NavLink>
-          </li>{" "}
+          </li>
+          <li className="sidebar__menu__element ">
+            <NavLink to="/Admin/Planing" exact activeClassName="active">
+              <Clock className="sidebar__menu__element__icon" />
+              Planing
+            </NavLink>
+          </li>
+          <li className="sidebar__menu__element ">
+            <NavLink to="/Admin/Notes" exact activeClassName="active">
+              <Clipboard className="sidebar__menu__element__icon" />
+              Notes
+            </NavLink>
+          </li>
           <li className="sidebar__menu__element ">
             <NavLink to="/Admin/Alerts" exact activeClassName="active">
               <Bell className="sidebar__menu__element__icon" />

@@ -9,15 +9,10 @@ function GroupeForm() {
     initialValues: { name: "", filier: "" },
     onSubmit: async (values, { resetForm }) => {
       const { name, filier } = values;
-      const data = await fetchData(
-        "group",
-        "POST",
-        JSON.stringify({ name, filier }),
-        {
-          "Content-Type": "application/json",
-        }
-      );
-      message.success(data.message);
+      await fetchData("group", "POST", JSON.stringify({ name, filier }), {
+        "Content-Type": "application/json",
+      });
+
       resetForm();
     },
   });

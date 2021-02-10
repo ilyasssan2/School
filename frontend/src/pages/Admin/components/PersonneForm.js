@@ -1,38 +1,32 @@
-import { DatePicker, Input, Modal, Select, Form, Alert  , message} from "antd";
+import { DatePicker, Input, Modal, Select, Form, Alert } from "antd";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import useHTTP from "../../../Shared/useHTTP";
 
-function PersonneForm({ OpenModal, open , DataToModel }) {
+function PersonneForm({ OpenModal, open, DataToModel }) {
   const { Option } = Select;
   const [groupes, setGroupes] = useState();
-  const { fetchData, error  } = useHTTP();
+  const { fetchData, error } = useHTTP();
   const [form] = Form.useForm();
-  
+
   useEffect(() => {
     getGroupes();
   }, []);
-  const HandelDelete = async ()=>{
-    const res = await fetchData("student/"+DataToModel._id , "DELETE");
-    message.success(res.message);
-   OpenModal()
-  }
+  const HandelDelete = async () => {
+    const res = await fetchData("student/" + DataToModel._id, "DELETE");
+    OpenModal();
+  };
   const getGroupes = async () => {
     const res = await fetchData("group");
     setGroupes(res.groupes);
   };
-  const HandelStudent = async (student , handling ) => {
-    const method = handling  === "Add" ? "POST" : "PATCH" 
+  const HandelStudent = async (student, handling) => {
+    const method = handling === "Add" ? "POST" : "PATCH";
     const res = await fetchData("student", method, JSON.stringify(student), {
       "Content-Type": "application/json",
     });
-  
-   try {
-    if(res.message) { message.success(res.message);}
-   } catch (error) {
-   }
   };
-  const HandelSubmit = (handling = "Add" ) => {
+  const HandelSubmit = (handling = "Add") => {
     form
       .validateFields()
       .then((values) => {
@@ -44,10 +38,10 @@ function PersonneForm({ OpenModal, open , DataToModel }) {
           lastName: values.lastName,
           phone: values.phone,
           birthday: moment(values.birthday).format("YYYY-MM-DD"),
-          id :DataToModel._id && DataToModel._id
+          id: DataToModel._id && DataToModel._id,
         };
-        console.log(data)
-        HandelStudent(data , handling);
+        console.log(data);
+        HandelStudent(data, handling);
       })
       .catch((info) => {
         console.log("Validate Failed:", info);
@@ -68,26 +62,28 @@ function PersonneForm({ OpenModal, open , DataToModel }) {
           Cancel
         </button>,
         ,
-        DataToModel._id ? [<button
-          onClick={HandelDelete}
-          key="2"
-          className="btn__danger"
-        >
-          Delete
-        </button> ,  <button
-          onClick={HandelSubmit.bind(this , "Update")}
-          key="3"
-          className="btn__primary"
-        >
-          Update
-        </button>] : [ <button
-          onClick={HandelSubmit.bind(this, "Add")}
-          key="2"
-          className="btn__primary"
-        >
-          Add
-        </button>]
-          
+        DataToModel._id
+          ? [
+              <button onClick={HandelDelete} key="2" className="btn__danger">
+                Delete
+              </button>,
+              <button
+                onClick={HandelSubmit.bind(this, "Update")}
+                key="3"
+                className="btn__primary"
+              >
+                Update
+              </button>,
+            ]
+          : [
+              <button
+                onClick={HandelSubmit.bind(this, "Add")}
+                key="2"
+                className="btn__primary"
+              >
+                Add
+              </button>,
+            ],
       ]}
     >
       {error ? (
@@ -102,7 +98,7 @@ function PersonneForm({ OpenModal, open , DataToModel }) {
               rules={[{ required: true }]}
               initialValue={DataToModel.firstName}
             >
-              <Input className="input__form" placeholder="First Name"  />
+              <Input className="input__form" placeholder="First Name" />
             </Form.Item>
           </div>
           <div className="col-6">
@@ -118,7 +114,12 @@ function PersonneForm({ OpenModal, open , DataToModel }) {
         </div>
         <div className="row ">
           <div className="col-6">
-            <Form.Item label="Phone" name="phone" rules={[{ required: true }]}    initialValue={DataToModel.phone}>
+            <Form.Item
+              label="Phone"
+              name="phone"
+              rules={[{ required: true }]}
+              initialValue={DataToModel.phone}
+            >
               <Input className="input__form" placeholder="Phone" />
             </Form.Item>
           </div>
@@ -139,7 +140,9 @@ function PersonneForm({ OpenModal, open , DataToModel }) {
               name="birthday"
               label="Birthday"
               rules={[{ required: true }]}
-              initialValue={DataToModel.birthday && moment(DataToModel.birthday)}
+              initialValue={
+                DataToModel.birthday && moment(DataToModel.birthday)
+              }
             >
               <DatePicker className="input__form" />
             </Form.Item>
@@ -150,7 +153,6 @@ function PersonneForm({ OpenModal, open , DataToModel }) {
               name="groupe"
               rules={[{ required: true }]}
               initialValue={DataToModel.groupe && DataToModel.groupe.name}
-            
             >
               <Select className="input__form" placeholder="Groupe">
                 {groupes &&

@@ -34,6 +34,7 @@ span {
   margin-top: 75px !important;
   height: calc(100vh - 75px) !important;
   overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 
 .component {
@@ -110,4 +111,7 @@ ul {
 }
 .color__white > span {
   color: white !important;
+}
+.w-150 {
+  width: 150px !important;
 }

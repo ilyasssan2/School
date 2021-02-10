@@ -2,16 +2,15 @@ import { useFormik } from "formik";
 import React from "react";
 import useHTTP from "../../../Shared/useHTTP";
 import { PlusCircleFill } from "react-bootstrap-icons";
-import { Input, message } from "antd";
+import { Input } from "antd";
 function FilierFrom() {
   const formik = useFormik({
     initialValues: { name: "" },
     onSubmit: async ({ name }, { resetForm }) => {
-      console.log(name);
-      const data = await fetchData("filier", "POST", JSON.stringify({ name }), {
+      await fetchData("filier", "POST", JSON.stringify({ name }), {
         "Content-Type": "application/json",
       });
-      message.success(data.message);
+
       resetForm();
     },
   });

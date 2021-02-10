@@ -7,9 +7,10 @@ import Header from "./layout/Header";
 import { useSelector } from "react-redux";
 import useAdmin from "../../Shared/useAdmin";
 import MyBreadcrumb from "./components/MyBreadcrumb";
-import GF from "./pages/GF";
-const Home = React.lazy(() => import("./pages/Home"));
+const GF = React.lazy(() => import("./pages/GF"));
+const Statistics = React.lazy(() => import("./pages/Statistics"));
 const Students = React.lazy(() => import("./pages/Students"));
+const Alerts = React.lazy(() => import("./pages/Alerts"));
 let timer;
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -41,9 +42,10 @@ function App() {
       <div className={toggle ? " full__content content" : "content"}>
         <MyBreadcrumb />
         <Switch>
-          <Route path="/Admin" component={Home} exact />
+          <Route path="/Admin" component={Statistics} exact />
           <Route path="/Admin/Students" component={Students} exact />
           <Route path="/Admin/Gf" component={GF} exact />
+          <Route path="/Admin/Alerts" component={Alerts} exact />
         </Switch>
       </div>
     </div>

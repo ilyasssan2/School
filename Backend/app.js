@@ -10,7 +10,7 @@ const Notification = require("./routes/Notify__routes");
 const Student = require("./routes/Student__routes");
 const Group = require("./routes/group__routes");
 const Filier = require("./routes/Filier__routes");
-
+const Staticts = require("./routes/statistics_routes");
 const app = express();
 app.use(bodyparser.json());
 app.use(
@@ -28,6 +28,7 @@ app.use("/api/student", Student);
 app.use("/api/group", Group);
 app.use("/api/filier", Filier);
 app.use("/api/admin", Admin);
+app.use("/api/statict", Staticts);
 /*------------middlewares--------- */
 
 app.use(middlewars.NoteFound);

@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator");
+const MyError = require("../ErrorModal");
 const Filier = require("../models/Filier");
 const getAll = async (req, res, next) => {
   const filiers = await Filier.find();
@@ -17,12 +18,10 @@ const deleteById = async (req, res, next) => {
 const add = async (req, res, next) => {
   const err = validationResult(req);
   if (!err.isEmpty()) {
-    return res.json({
-      message: "error",
-    });
+    return next(new MyError("fileds not valid", 401));
   }
   const { name } = req.body;
-  const newFilier = await Filier.create({ name });
+  await Filier.create({ name });
 
   res.json({
     message: "filier added",

@@ -4,7 +4,7 @@ const Notify = new mongoose.Schema(
   {
     title: { type: String, required: true },
     message: { type: String, required: true },
-    groups: [{ type: String, default: "all" }],
+    groups: { type: String, default: "all" },
   },
   { timestamps: true }
 );
