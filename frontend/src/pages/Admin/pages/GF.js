@@ -19,8 +19,8 @@ function GF() {
           </div>
         </div>
       </div>
-      <div className="col-auto"></div>
-      <div className="col-lg-4 col-md-12  ">
+      <div className="col-auto col-md-0"></div>
+      <div className="col-lg-4 col-md-12 my-lg-0 my-4   ">
         <GroupeForm />
         <div className="mt-3"></div>
         <FilierFrom />

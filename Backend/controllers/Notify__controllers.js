@@ -1,7 +1,7 @@
 const { validationResult } = require("express-validator");
 const Notify = require("../models/Notify");
 const getAll = async (req, res, next) => {
-  const notify = await Notify.find().sort({createdAt: -1});
+  const notify = await Notify.find().sort({ createdAt: -1 });
 
   res.json({
     notifications: notify,
@@ -22,10 +22,10 @@ const add = async (req, res, next) => {
     });
   }
   const { groups, title, message } = req.body;
-  const newNotification = await Notify.create({ groups, title, message });
+  await Notify.create({ groups, title, message });
 
   res.json({
-    newNotification,
+    message: "Alerts added",
   });
 };
 

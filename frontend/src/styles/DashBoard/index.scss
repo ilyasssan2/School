@@ -42,6 +42,9 @@ span {
   background-color: $bg;
   background-color: white;
 }
+.component__spacing {
+  padding: 3em;
+}
 ul {
   list-style: none;
   margin: 0;
@@ -114,4 +117,8 @@ ul {
 }
 .w-150 {
   width: 150px !important;
+}
+.myStciky {
+  position: sticky;
+  top: 0px;
 }

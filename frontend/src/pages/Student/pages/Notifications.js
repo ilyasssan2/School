@@ -4,10 +4,10 @@ import moment from "moment";
 import { useHistory } from "react-router-dom";
 import { Affix } from "antd";
 function Notifications({ match }) {
-  const { error, loading, fetchData } = useHTTP();
+  const { fetchData } = useHTTP();
   const [notifations, setNotifations] = useState();
 
-  const [top, setTop] = useState(95);
+  const [top] = useState(95);
   const history = useHistory();
   const id = match.params.id;
   const [notifation, setNotifation] = useState(id ? id : null);

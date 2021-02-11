@@ -4,7 +4,7 @@ import { BellFill } from "react-bootstrap-icons";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
 function Notification() {
-  const { error, loading, fetchData } = useHTTP();
+  const { fetchData } = useHTTP();
   const [notifations, setNotifations] = useState();
   const history = useHistory();
   useEffect(async () => {
